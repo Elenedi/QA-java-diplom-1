@@ -10,16 +10,22 @@ public class Bun {
     public float price;
 
 <span class="fc" id="L12">    public Bun(String name, float price) {</span>
-<span class="fc" id="L13">        this.name = name;</span>
-<span class="fc" id="L14">        this.price = price;</span>
-<span class="fc" id="L15">    }</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (price &lt; 0) {</span>
+<span class="fc" id="L14">            throw new IllegalArgumentException(&quot;Цена не может быть отрицательной&quot;);</span>
+            }
+<span class="fc" id="L16">        this.name = name;</span>
+<span class="fc" id="L17">        this.price = price;</span>
+<span class="fc" id="L18">    }</span>
+
+<span class="fc" id="L20">    public Bun(String cinnabon, double bunPrice) {</span>
+<span class="fc" id="L21">    }</span>
 
     public String getName() {
-<span class="nc" id="L18">        return name;</span>
+<span class="fc" id="L24">        return name;</span>
     }
 
     public float getPrice() {
-<span class="fc" id="L22">        return price;</span>
+<span class="fc" id="L28">        return price;</span>
     }
 
 }
