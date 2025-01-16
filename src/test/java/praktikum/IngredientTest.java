@@ -16,21 +16,21 @@ public class IngredientTest {
         this.ingredient = new Ingredient(ingredientType,ingredientName,ingredientPrice); }
 
 @Test
-  public void getPriceIsComplete() {
+  public void getPriceIsCompleteTest() {
     MatcherAssert.assertThat("Неверная цена ингредиента",
             ingredient.getPrice(),
             equalTo(ingredientPrice));
 }
 
 @Test
-    public void getNameIsComplete() {
+    public void getNameIsCompleteTest() {
         MatcherAssert.assertThat("Неверное название ингредиента",
                 ingredient.getName(),
                 equalTo(ingredientName));
 }
 
 @Test
-    public void getTypeIsComplete() {
+    public void getTypeIsCompleteTest() {
     MatcherAssert.assertThat("Неверный тип ингредиента",
             ingredient.getType(),
             equalTo(ingredientType));

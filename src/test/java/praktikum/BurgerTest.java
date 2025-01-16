@@ -6,7 +6,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.junit.runner.RunWith;
-import static org.junit.Assert.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -23,7 +22,7 @@ public class BurgerTest {
     private Ingredient ingredientB;
 
     @Test
-    public void setBunsIsComplete() {
+    public void setBunsIsCompleteTest() {
         Burger burger = new Burger();
         Mockito.when(bun.getName()).thenReturn("sandwich");
         burger.setBuns(bun);

@@ -23,7 +23,7 @@ public class IngredientTypeTest {
         this.typeName = typeName; }
 
     @Test
-    public void ingredientTypeIsComplete() {
+    public void ingredientTypeIsCompleteTest() {
         MatcherAssert.assertThat("Отсутствует тип " + typeName,
                 IngredientType.valueOf(typeName.toUpperCase()).toString(),
         equalTo(typeName));
