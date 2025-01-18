@@ -18,8 +18,17 @@ public class BunTest {
     }
 
     @Test
-    public void getPriceIsPositiveDoubleTest() {
-        double bunPrice = 2.50;
+    public void getPriceIsCompleteTest() {
+        float bunPrice = 250;
+        bun = new Bun("cinnabon", bunPrice);
+        MatcherAssert.assertThat("Неверная цена булочки",
+                bun.getPrice(),
+                equalTo(bunPrice));
+    }
+
+    @Test
+    public void getPriceIsPositiveTest() {
+        float bunPrice = 2.50f;
         bun = new Bun("cinnabon", bunPrice);
         MatcherAssert.assertThat("Неверная цена булочки",
         bun.getPrice(),
@@ -43,12 +52,58 @@ public class BunTest {
                 bun.getPrice(),
                 equalTo(bunPrice));
     }
-    @Test
-    public void getPriceIsCompleteTest() {
-        float bunPrice = 250;
-        Bun bun = new Bun("cinnabon", bunPrice);
-        MatcherAssert.assertThat("Неверная цена булочки", 
-                bun.getPrice(),
-                equalTo(bunPrice));
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getNameIsEmptyTest(){
+        bun = new Bun("", 250);
+        String bunName = "";
+        MatcherAssert.assertThat("Неверное имя булочки",
+                bun.getName(),
+                equalTo(bunName));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getNameIsShortTest(){
+        bun = new Bun("ci", 250);
+        String bunName = "ci";
+        MatcherAssert.assertThat("Неверное имя булочки",
+                bun.getName(),
+                equalTo(bunName));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getNameIsLongTest() {
+        bun = new Bun("cinnaboncinnaboncinnabon", 250);
+        String bunName = "cinnaboncinnaboncinnabon";
+        MatcherAssert.assertThat("Неверное имя булочки",
+                bun.getName(),
+                equalTo(bunName));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getNameWithSpacesTest() {
+        bun = new Bun("    ", 250);
+        String bunName = "    ";
+        MatcherAssert.assertThat("Неверное имя булочки",
+                bun.getName(),
+                equalTo(bunName));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getNameWithSymbolsTest(){
+        bun = new Bun("@#%$", 250);
+        String bunName = "@#%$";
+        MatcherAssert.assertThat("Неверное имя булочки",
+                bun.getName(),
+                equalTo(bunName));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getNameNotInDatabaseTest(){
+        bun = new Bun("not a real bun", 250);
+        String bunName = "not a real bun";
+        MatcherAssert.assertThat("Неверное имя булочки",
+                bun.getName(),
+                equalTo(bunName));
     }
 }
