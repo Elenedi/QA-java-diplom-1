@@ -76,7 +76,7 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(ingredientA);
 
-        String expectedReceipt = "(==== sandwich ====)\n= filling cheese =\n(==== sandwich ====)\n\nPrice: " + burger.getPrice() + "\n";
+        String expectedReceipt = "(==== sandwich ====)\n= filling cheese =\n(==== sandwich ====)\n\nPrice: " + String.format("%.2f", burger.getPrice()) + "\n";
         MatcherAssert.assertThat("Неверный чек",
                 burger.getReceipt(),
                 equalTo(expectedReceipt));
